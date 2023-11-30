@@ -1,0 +1,21 @@
+[build]
+  command = "yarn build"
+  functions = "netlify/functions"
+  publish = "dist"
+
+  [dev]
+   command = "yarn dev" # Command to start your dev server
+   port = 8888 # Port that the dev server will be listening on
+   publish = "dist" # Folder with the static content for _redirect file
+   functions = "netlify/functions"
+   autoLaunch = false
+
+  [[redirects]]
+    from = '/api/*'
+    to = '/.netlify/functions/api/:splat'
+    status = 200
+
+  [functions]
+    # external_node_modules = ["express", "vm2"]
+    node_bundler = 'esbuild'
+
