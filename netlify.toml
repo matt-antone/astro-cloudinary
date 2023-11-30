@@ -10,11 +10,6 @@
    functions = "netlify/functions"
    autoLaunch = false
 
-  [[redirects]]
-    from = '/api/*'
-    to = '/.netlify/functions/api/:splat'
-    status = 200
-
   [functions]
     # external_node_modules = ["express", "vm2"]
     node_bundler = 'esbuild'
