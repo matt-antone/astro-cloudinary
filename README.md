@@ -1,1 +1,1 @@
-redirect to netlify functions works in netlify.toml
+redirect to netlify functions works in netlify.toml testing
