@@ -1,0 +1,20 @@
+---
+import { client } from '../../../tina/__generated__/client'
+import App from '../../layouts/App.astro' 
+import Symbols from '../../components/Symbols'
+const response = await client.queries.page({relativePath: "symbols.mdx"})
+const { taxonomyPath } = Astro.params;
+
+const taxonomy = {
+	name: decodeURI(taxonomyPath || '')?.split('/')[0] || taxonomyPath,
+	value: decodeURI(taxonomyPath || '')?.split('/')[1] || null,
+}
+export const prerender = false;
+---
+<App {...response || null}>
+	<div class="py-12">
+		<main>
+			<Symbols client:load taxonomy.name taxonomy.value showTaxonomy={false}/>
+		</main>
+	</div>
+</App>

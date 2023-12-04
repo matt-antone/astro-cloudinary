@@ -1,0 +1,30 @@
+---
+import Container from '../layouts/Container.astro'
+import siteSettings from '../../content/settings/site.json' assert {type: 'json'}
+import Menu from '../../content/menus/footer.json'
+const pathname = new URL(Astro.request.url).pathname;
+
+---
+<footer class="text-center text-sm">
+  <Container>
+    <nav>
+      <ul class="flex gap-4 mx-auto justify-center mb-4">
+        {Menu.items && Menu.items.map( (item:any) => (
+          <li>
+            <a href={item.href} class={`text-green underline ${pathname === item.href && 'font-bold'}`}>{item.label}</a>  
+            {item.submenu && (
+              <ul>
+                {item.submenu.map( (subItem:any) => (
+                  <li>
+                    <a href={item.href} class={`text-green hover:underline ${pathname === item.href && 'font-bold'}`}>{item.label}</a>  
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <p class="text-center">&copy;{new Date().getFullYear()}&nbsp;{siteSettings.copyrightText}</p>
+  </Container>
+</footer>

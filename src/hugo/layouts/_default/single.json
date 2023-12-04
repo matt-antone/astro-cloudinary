@@ -1,0 +1,20 @@
+{{ $related := .Site.Pages.Related . | first 6 }}
+{
+  "title": "{{ .Title }}",
+  "date": "{{.Date}}",
+  "file": "{{ .Page }} {{$related}}"
+  {{ with $related }}
+    ,"related": [
+      {{ range $i, $e := . }}
+        {{ if $i }},{{ end }}
+        {
+          "id": "{{ $e.Page.File }}",
+          "title": "{{ $e.Title }}"
+          {{ if $e.Params.featuredimg }}
+          ,"featuredImg": {{ $e.Params.featuredimg | jsonify }}
+          {{ end }}
+        }
+      {{ end }}
+      ]
+  {{ end }}
+}

@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "label": "Home",
+      "href": "/",
+      "title": "Home"
+    },
+    {
+      "label": "Symbols",
+      "href": "/symbols"
+    }
+  ]
+}

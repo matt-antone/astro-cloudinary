@@ -1,0 +1,14 @@
+---
+import { client } from '../../../tina/__generated__/client'
+import App from '../../layouts/App.astro' 
+import PageLanding from '../../layouts/PageLanding'
+const response = await client.queries.page({relativePath: "symbols.mdx"})
+import Symbols from '../../components/Symbols'
+---
+<App {...response || null}>
+	<div class="py-12">
+		<main>
+			<Symbols client:load/>
+		</main>
+	</div>
+</App>

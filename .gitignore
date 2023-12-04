@@ -1,8 +1,6 @@
 # build output
 dist/
-
-# generated types
-.astro/
+.output/
 
 # dependencies
 node_modules/
@@ -12,6 +10,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
 
 # environment variables
 .env
@@ -23,3 +22,8 @@ pnpm-debug.log*
 node_modules
 # Local Netlify folder
 .netlify
+.vscode
+.vscode/*
+
+
+src/content/related/*

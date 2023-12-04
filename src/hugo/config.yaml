@@ -1,0 +1,30 @@
+languageCode: 'en-us'
+title: 'Startrek Design Project Related Items'
+contentDir: '../../content/symbols'
+publishDir: '../content/related'
+uglyURLs: true
+outputs:
+  page:
+  - json
+cleanDestinationDir: true
+taxonomies:
+  time_period: time_period
+  quadrants: quadrants
+  universe: universes
+  affiliations: affiliations
+  type: types
+  franchise: franchise
+  designer: designer
+  designers: designers
+rssLimit: 0
+related:
+  threshold: 1
+  indices:
+  - name: references
+    weight: 100
+  - name: taxonomy.franchise
+    weight: 90
+  - name: taxonomy.quadrants
+    weight: 80
+  # - name: taxonomy.affiliations
+  #   weight: 75

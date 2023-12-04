@@ -1,0 +1,55 @@
+{
+  "list": [
+    {
+      "name": "affiliations",
+      "label": "Affiliations",
+      "_template": "tagsField"
+    },
+    {
+      "name": "quadrants",
+      "label": "Quadrants",
+      "options": [
+        "",
+        "Alpha",
+        "Beta",
+        "Delta",
+        "Gamma",
+        "Other"
+      ],
+      "_template": "presetField"
+    },
+    {
+      "name": "time",
+      "label": "Time Period",
+      "options": [
+        "800s",
+        "1400s",
+        "1900s",
+        "2000s",
+        "2100s",
+        "2200s",
+        "2300s",
+        "2400s",
+        "2800s",
+        "3100s"
+      ],
+      "_template": "presetField"
+    },
+    {
+      "name": "universes",
+      "label": "Universe",
+      "_template": "tagsField"
+    },
+    {
+      "name": "franchise",
+      "label": "Franchise",
+      "_template": "single"
+    },
+    {
+      "name": "types",
+      "label": "Types",
+      "_template": "tagsField"
+    }
+  ],
+  "_template": "taxonomies"
+}

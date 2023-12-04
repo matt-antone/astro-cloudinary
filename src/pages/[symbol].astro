@@ -1,0 +1,32 @@
+---
+import { client } from '../../tina/__generated__/client'
+import App from '../layouts/App.astro' 
+import PageSymbol from '../layouts/PageSymbol'
+import { getEntry } from 'astro:content';
+
+// Get all the pages that don't have a path already
+export async function getStaticPaths() {
+  const symbols = await client.queries.symbolConnection({first:1500})
+  const paths =  symbols?.data?.symbolConnection?.edges ? 
+    symbols.data.symbolConnection.edges.filter( (page:any) => {
+      // filter out home page
+      return page?.node?.title.toLowerCase() !== 'home' ? true : false
+    } )
+    .map( (symbol:any) => {
+      // return relative path for each page
+      return {
+        params: {
+          symbol: `${symbol?.node?._sys.relativePath.replace('.md', '')}`
+        }
+      }
+    }) : []
+  return paths
+}
+
+const { symbol } = Astro.params;
+const response = await client.queries.symbol({relativePath: symbol + '.md'})
+const relatedRsp = await getEntry('related', symbol?.replace(/\(|\)|'/g, "") || '')
+---
+<App {...response || null}>
+  <PageSymbol client:tina {...response || null} related={ relatedRsp?.data?.related || [] } />
+</App>

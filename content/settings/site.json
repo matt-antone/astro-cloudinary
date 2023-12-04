@@ -1,0 +1,9 @@
+{
+  "name": "Astro Tina",
+  "logo": {
+    "src": "https://res.cloudinary.com/startrekdesignproject-com/image/upload/w_400,h_61,c_fit,,q_auto,dpr_2.0//v1551248815/STDP_HeaderLogo.webp",
+    "alt": "Logo"
+  },
+  "copyrightText": "Star Trek Design Project. All rights reserved. Committed to WCAG 2.1 AA Accessibility Compliance.",
+  "_template": "site"
+}

@@ -1,9 +1,7 @@
 /**
  * @type {import('astro').ClientDirective}
  */
-
-
-export default (load) => {
+export default (load, opts, el) => {
   try {
     const isEditor =
       window.frameElement && window.frameElement.id === "tina-iframe";

@@ -1,0 +1,34 @@
+---
+import Container from '../layouts/Container.astro'
+import { Breadcrumbs } from "astro-breadcrumbs";
+import siteSettings from '../../content/settings/site.json' assert {type: 'json'}
+import main from '../../content/menus/main.json' assert {type: 'json'}
+import 'astro-breadcrumbs/breadcrumbs.css';
+import CloudImage from './CloudImage';
+const pathname = new URL(Astro.request.url).pathname;
+---
+<!-- Header.astro -->
+<header class="">
+  <div class="flex pt-8 text-white">
+    <Container>
+      <div class="flex justify-between items-center">
+         {siteSettings.logo ? (
+          <a href="/">
+            <CloudImage {...siteSettings.logo} width={400} height={61} contain className="block w-[400px]" />          
+          </a>
+         ) : (
+          <p>text</p>
+         )}
+        <nav>
+          {main && <ul class="flex gap-4">
+            {main.items.map(item => (
+              <li>
+                <a href={item.href} class={`border hover:border-white py-2 px-4 ${pathname === item.href ? 'border-white' : 'border-transparent'}`}>{item.label}</a>
+              </li>
+            ))}
+          </ul>}
+        </nav>   
+      </div>
+    </Container>
+  </div>
+</header>
